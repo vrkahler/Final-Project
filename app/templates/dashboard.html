@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <section>
+        <h2>Welcome to your dashboard</h2>
+        <p>This is where your classes, tasks, and progress will go.</p>
+    </section>
+
+    <div>
+        <button>Add Class</button>
+        <a href="/add-task"><button>Add Task</button></a>
+    </div>
+    <div class="container">
+
+        <h2>Your Classes</h2>
+
+        <div class="card-grid">
+            <div class="card">
+                <h3>Calculus II</h3>
+                <p>Test 4 on Thursday</p>
+            </div>
+
+            <div class="card">
+                <h3>Mathematical Computing</h3>
+                <p>Pre-Project Plan due April 6</p>
+            </div>
+
+            <div class="card">
+                <h3>Intro to Data Science</h3>
+                <p>Discussion 3 Due Sunday</p>
+            </div>
+        </div>
+
+        <h2>Tasks</h2>
+
+        {% for task in tasks %}
+            <div class="task-card">
+                <p>{{ task["name"] }}</p>
+                <p>{{ task["class"] }}</p>
+                <p>{{ task["date"] }}</p>
+                <a href="/delete-task/{{ loop.index0 }}">
+                    <button>Delete</button>
+                </a>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}

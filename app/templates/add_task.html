@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Add Task{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Add a New Task</h2>
+
+    <form method="POST">
+        <label for="task_name">Task Name:</label><br>
+        <input type="text" id="task_name" name="task_name"><br><br>
+
+        <label for="class_name">Class:</label><br>
+        <input type="text" id="class_name" name="class_name"><br><br>
+
+        <label for="due_date">Due Date:</label><br>
+        <input type="text" id="due_date" name="due_date"><br><br>
+
+        <button type="submit">Save</button>
+    </form>
+</section>
+{% endblock %}

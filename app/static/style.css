@@ -1,0 +1,138 @@
+body {
+    font-family:Arial, sans-serif;
+    background color: #fff7fb;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f8d7e8;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #f2bcd4;
+}
+
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+section {
+    background color: white;
+    border: 1px solid #f2d6e3;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+h1,h2, h3 {
+    margin-top: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f2d6e3;
+}
+
+.card h3 {
+    margin-top 0;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: 0.2s;
+}
+
+button {
+    background-color: #f8d7e8;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f2bcd4;
+}
+
+h2 {
+    margin-top: 40px;
+}
+
+button {
+    background: linear-gradient(135deg, #f8d7e8, #f2bcd4);
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e7bfd2;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+
+label {
+    font-weight: 600;
+}
+
+.task-card {
+    background-color: white;
+    padding: 15px;
+    max-width: 400px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border: 2px solid pink;
+    transition: transform 0.15s ease;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+}
+
+.task-card p:first-child {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.task-card p:last-child {
+    font-size: 0.9em;
+    color: #888;
+}
