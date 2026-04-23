@@ -56,11 +56,15 @@ h1,h2, h3 {
     margin-top 0;
 }
 
-.buttons {
+.task-buttons {
     margin-top: 20px;
 }
 
-.buttons {
+.task-buttons {
+    margin-bottom: 20px;
+}
+
+.task-buttons {
     display: flex;
     gap: 10px;
 }
@@ -135,4 +139,15 @@ label {
 .task-card p:last-child {
     font-size: 0.9em;
     color: #888;
+}
+
+.task-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.task-buttons form {
+    margin: 0;
 }

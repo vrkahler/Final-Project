@@ -37,13 +37,23 @@
 
         {% for task in tasks %}
             <div class="task-card">
-                <p>{{ task["name"] }}</p>
+                {% if task["completed"] %}
+                    <p><s>{{ task["name"] }}</s> ✅</p>
+                {% else %}
+                    <p>{{ task["name"] }}</p>
+                {% endif %}
                 <p>{{ task["class"] }}</p>
                 <p>{{ task["date"] }}</p>
+            </div>
+
+            <div class="task-buttons">
                 <a href="/delete-task/{{ loop.index0 }}">
-                    <button>Delete</button>
-                    <button>Mark Complete</button>
+                    <button type="button">Delete</button>
                 </a>
+
+                <form action="/complete-task/{{ loop.index0 }}" method="POST">
+                    <button type="submit">Mark Complete</button>
+                </form>
             </div>
         {% endfor %}
 

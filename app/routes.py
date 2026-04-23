@@ -1,7 +1,9 @@
 from flask import render_template, request, redirect, url_for
 from app import app
+import json
 
-tasks = []
+with open("app/tasks.json", "r") as file:
+    tasks = json.load(file)
 
 @app.route('/')
 @app.route('/dashboard')
@@ -32,4 +34,9 @@ def add_task():
 def delete_task(index):
     index = int(index)
     tasks.pop(index)
+    return redirect(url_for("dashboard"))
+
+@app.route("/complete-task/<int:index>", methods=["POST"])
+def complete_task(index):
+    tasks[index]["completed"] = True
     return redirect(url_for("dashboard"))
