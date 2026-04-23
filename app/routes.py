@@ -11,15 +11,18 @@ def dashboard():
 @app.route("/add-task", methods=["GET", "POST"])
 def add_task():
     if request.method == "POST":
-        task_name = request.form["task_name"]
-        class_name = request.form["class_name"]
+        task_name = request.form["task_name"].strip()
+        class_name = request.form["class_name"].strip()
         due_date = request.form["due_date"]
-        tasks.append({
-            "name": task_name,
-            "class": class_name,
-            "date": due_date
-        })
-        print(tasks)
+
+        if task_name and class_name:
+            tasks.append({
+                "name": task_name,
+                "class": class_name,
+                "date": due_date,
+                "completed": False
+            })
+            print(tasks)
 
         return redirect(url_for("dashboard"))
 
