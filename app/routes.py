@@ -5,6 +5,10 @@ import json
 with open("app/tasks.json", "r") as file:
     tasks = json.load(file)
 
+def save_tasks():
+    with open("app/tasks.json", "w") as file:
+        json.dump(tasks, file, indent=4)
+
 @app.route('/')
 @app.route('/dashboard')
 def dashboard():
@@ -24,16 +28,16 @@ def add_task():
                 "date": due_date,
                 "completed": False
             })
-            print(tasks)
+            save_tasks()
 
         return redirect(url_for("dashboard"))
 
     return render_template("add_task.html")
 
-@app.route("/delete-task/<index>")
+@app.route("/delete-task/<int:index>")
 def delete_task(index):
-    index = int(index)
     tasks.pop(index)
+    save_tasks()
     return redirect(url_for("dashboard"))
 
 @app.route("/complete-task/<int:index>", methods=["POST"])
