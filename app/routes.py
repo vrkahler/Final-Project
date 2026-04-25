@@ -43,4 +43,8 @@ def delete_task(index):
 @app.route("/complete-task/<int:index>", methods=["POST"])
 def complete_task(index):
     tasks[index]["completed"] = True
+
+    with open("app/tasks.json", "w") as file:
+        json.dump(tasks, file)
+        
     return redirect(url_for("dashboard"))
