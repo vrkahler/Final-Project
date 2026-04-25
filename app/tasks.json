@@ -1,1 +1,8 @@
-[{"name": "STUDY FOR CALC II", "class": "Discrete", "date": "Sep 3", "completed": true}]
+[
+    {
+        "name": "STUDY FOR CALC II",
+        "class": "Discrete",
+        "date": "Sep 3",
+        "completed": true
+    }
+]

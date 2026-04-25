@@ -21,7 +21,7 @@ def add_task():
         class_name = request.form["class_name"].strip()
         due_date = request.form["due_date"]
 
-        if task_name and class_name:
+        if task_name:
             tasks.append({
                 "name": task_name,
                 "class": class_name,
@@ -46,5 +46,5 @@ def complete_task(index):
 
     with open("app/tasks.json", "w") as file:
         json.dump(tasks, file)
-        
+
     return redirect(url_for("dashboard"))
