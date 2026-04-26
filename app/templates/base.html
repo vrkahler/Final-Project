@@ -15,4 +15,8 @@
         {% block content %}{% endblock %}
     </main>
 </body>
+<nav>
+    <a href="{{ url_for('dashboard') }}">Home</a>
+    <a href="{{ url_for('completed') }}">Completed Tasks</a>
+</nav>
 </html>

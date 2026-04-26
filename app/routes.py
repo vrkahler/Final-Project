@@ -9,10 +9,11 @@ def save_tasks():
     with open("app/tasks.json", "w") as file:
         json.dump(tasks, file, indent=4)
 
-@app.route('/')
-@app.route('/dashboard')
+@app.route("/")
+@app.route("/dashboard")
 def dashboard():
-    return render_template("dashboard.html", tasks=tasks)
+    active_tasks = [task for task in tasks if not task["completed"]]
+    return render_template("dashboard.html", tasks=active_tasks)
 
 @app.route("/add-task", methods=["GET", "POST"])
 def add_task():
@@ -42,9 +43,21 @@ def delete_task(index):
 
 @app.route("/complete-task/<int:index>", methods=["POST"])
 def complete_task(index):
+    with open("app/tasks.json", "r") as file:
+        tasks = json.load(file)
+
     tasks[index]["completed"] = True
 
     with open("app/tasks.json", "w") as file:
         json.dump(tasks, file)
 
     return redirect(url_for("dashboard"))
+
+@app.route("/completed")
+def completed():
+    with open("app/tasks.json", "r") as file:
+        tasks = json.load(file)
+
+    completed_tasks = [task for task in tasks if task.get("completed") == True]
+
+    return render_template("completed.html", tasks=completed_tasks)
