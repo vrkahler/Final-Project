@@ -16,12 +16,18 @@
 
         <h2>Your Classes</h2>
 
-     {% for class in classes %}
-    <div class="card">
-        <h3>{{ class["name"] }}</h3>
-        <p>{{ class["info"] }}</p>
-    </div>
-   {% endfor %}   
+     {% for course in classes %}
+        <div class="card">
+            <h3>{{ course["name"] }}</h3>
+            <p>{{ course["info"] }}</p>
+
+            {% for task in tasks %}
+                {% if task["class"] == course["name"] %}
+                 <p>{{ task["name"] }}</p>
+            {% endif %}
+        {% endfor %}
+        </div>
+    {% endfor %} 
     </div>
 
         <h2>Tasks</h2>
