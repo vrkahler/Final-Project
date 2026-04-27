@@ -55,7 +55,7 @@ def add_task():
 
         return redirect(url_for("dashboard"))
 
-    return render_template("add_task.html")
+    return render_template("add_task.html", classes=classes)
 
 @app.route("/delete-task/<int:index>")
 def delete_task(index):

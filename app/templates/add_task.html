@@ -11,7 +11,11 @@
         <input type="text" id="task_name" name="task_name" required><br><br>
 
         <label for="class_name">Class:</label><br>
-        <input type="text" id="class_name" name="class_name"><br><br>
+        <select id="class_name" name="class_name">
+            {% for course in classes %}
+                <option value="{{ course['name'] }}">{{ course['name'] }}</option>
+            {% endfor %}
+        </select><br><br>
 
         <label for="due_date">Due Date:</label><br>
         <input type="text" id="due_date" name="due_date"><br><br>

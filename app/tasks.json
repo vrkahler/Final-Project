@@ -1,1 +1,20 @@
-[{"name": "STUDY FOR CALC II", "class": "Discrete", "date": "Sep 3", "completed": true}, {"name": "10.9 Notes", "class": "", "date": "", "completed": true}]
+[
+    {
+        "name": "STUDY FOR CALC II",
+        "class": "Discrete",
+        "date": "Sep 3",
+        "completed": true
+    },
+    {
+        "name": "10.9 Notes",
+        "class": "",
+        "date": "",
+        "completed": true
+    },
+    {
+        "name": "STUDY FOR CALC II",
+        "class": "Calculus II",
+        "date": "",
+        "completed": false
+    }
+]
