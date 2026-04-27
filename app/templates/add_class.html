@@ -1,4 +1,16 @@
-<form method="POST">
-    <input type="text" name="class_name" placeholder="Class Name" required>
-    <button type="submit">Save Class</button>
-</form>
+{% extends "base.html" %}
+
+{% block title %}Add Class{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Add a Class</h2>
+
+    <form method="POST">
+        <label for="class_name">Class Name:</label><br>
+        <input type="text" id="class_name" name="class_name" required><br><br>
+
+        <button type="submit">Save Class</button>
+    </form>
+</section>
+{% endblock %}
