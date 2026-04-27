@@ -5,15 +5,37 @@ import json
 with open("app/tasks.json", "r") as file:
     tasks = json.load(file)
 
+with open("app/classes.json", "r") as file:
+    classes = json.load(file)
+
 def save_tasks():
     with open("app/tasks.json", "w") as file:
         json.dump(tasks, file, indent=4)
+
+def save_classes():
+    with open("app/classes.json", "w") as file:
+        json.dump(classes, file, indent=4)
 
 @app.route("/")
 @app.route("/dashboard")
 def dashboard():
     active_tasks = [task for task in tasks if not task["completed"]]
-    return render_template("dashboard.html", tasks=active_tasks)
+    return render_template("dashboard.html", tasks=active_tasks, classes=classes)
+
+@app.route("/add-class", methods=["GET", "POST"])
+def add_class():
+    if request.method == "POST":
+        class_name = request.form["class_name"].strip()
+
+        if class_name:
+            classes.append({
+                "name": class_name,
+            })
+            save_classes()
+
+        return redirect(url_for("dashboard"))
+
+    return render_template("add_class.html")
 
 @app.route("/add-task", methods=["GET", "POST"])
 def add_task():
