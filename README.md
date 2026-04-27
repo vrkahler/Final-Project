@@ -12,7 +12,7 @@ In this app you can:
 1. Clone the repository
 2. Install the dependencies 
 3. Run the app
-4. Open http://127.0.0.1:5000/
+4. Open the link that shows up in your terminal
 
 ## Programs I used:
 - Python

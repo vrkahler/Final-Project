@@ -1,1 +1,11 @@
-[]
+[
+    {
+        "name": "Mathematical Computing"
+    },
+    {
+        "name": "Calculus II"
+    },
+    {
+        "name": "Intro to Data Science"
+    }
+]
