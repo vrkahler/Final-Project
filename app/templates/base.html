@@ -11,12 +11,13 @@
     <header>
         <h1> ✨ Student Dashboard ✨ </h1>
     </header>
+
+    <nav>
+        <a href="{{ url_for('dashboard') }}">Home</a>
+        <a href="{{ url_for('completed_tasks') }}">Completed Tasks</a>
+    </nav>
+
     <main>
         {% block content %}{% endblock %}
     </main>
 </body>
-<nav>
-    <a href="{{ url_for('dashboard') }}">Home</a>
-    <a href="{{ url_for('completed') }}">Completed Tasks</a>
-</nav>
-</html>

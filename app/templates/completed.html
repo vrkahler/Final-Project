@@ -9,7 +9,7 @@
 
 {% if tasks %}
     {% for task in tasks %}
-        <p>{{ task.name }}</p>
+        <p>{{ task["name"] }}</p>
     {% endfor %}
 {% else %}
     <p>No completed tasks yet.</p>

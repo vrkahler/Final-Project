@@ -20,7 +20,7 @@ main {
 }
 
 section {
-    background color: white;
+    background-color: white;
     border: 1px solid #f2d6e3;
     border-radius: 12px;
     padding: 20px;
@@ -53,7 +53,7 @@ h1,h2, h3 {
 }
 
 .card h3 {
-    margin-top 0;
+    margin-top: 0;
 }
 
 .task-buttons {

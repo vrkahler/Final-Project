@@ -19,7 +19,7 @@ def save_classes():
 @app.route("/")
 @app.route("/dashboard")
 def dashboard():
-    active_tasks = [task for task in tasks if not task["completed"]]
+    active_tasks = [(i, task) for i, task in enumerate(tasks) if not task["completed"]]
     return render_template("dashboard.html", tasks=active_tasks, classes=classes)
 
 @app.route("/add-class", methods=["GET", "POST"])
@@ -63,23 +63,16 @@ def delete_task(index):
     save_tasks()
     return redirect(url_for("dashboard"))
 
-@app.route("/complete-task/<int:index>", methods=["POST"])
-def complete_task(index):
-    with open("app/tasks.json", "r") as file:
-        tasks = json.load(file)
+@app.route("/completed_tasks", methods=["GET", "POST"])
+def completed_tasks():
+    global tasks
 
-    tasks[index]["completed"] = True
+    if request.method == "POST":
+        index = int(request.form["index"])
+        tasks[index]["completed"] = True
+        save_tasks()
+        return redirect(url_for("dashboard"))
 
-    with open("app/tasks.json", "w") as file:
-        json.dump(tasks, file)
+    completed = [task for task in tasks if task["completed"]]
 
-    return redirect(url_for("dashboard"))
-
-@app.route("/completed")
-def completed():
-    with open("app/tasks.json", "r") as file:
-        tasks = json.load(file)
-
-    completed_tasks = [task for task in tasks if task.get("completed") == True]
-
-    return render_template("completed.html", tasks=completed_tasks)
+    return render_template("completed.html", tasks=completed)

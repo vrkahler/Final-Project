@@ -16,23 +16,31 @@
 
         <h2>Your Classes</h2>
 
-     {% for course in classes %}
+    {% for course in classes %}
         <div class="card">
             <h3>{{ course["name"] }}</h3>
-            <p>{{ course["info"] }}</p>
 
-            {% for task in tasks %}
+            {% for index, task in tasks %}
                 {% if task["class"] == course["name"] %}
-                 <p>{{ task["name"] }}</p>
-            {% endif %}
-        {% endfor %}
+                    <p>{{ task["name"] }}</p>
+                {% endif %}
+            {% endfor %}
         </div>
-    {% endfor %} 
+    {% endfor %}
+    
+    
+    
+    
+    
+    
+    
+    
+    
     </div>
 
         <h2>Tasks</h2>
 
-        {% for task in tasks %}
+        {% for index, task in tasks %}
             <div class="task-card">
                 {% if task["completed"] %}
                     <p><s>{{ task["name"] }}</s> ✅</p>
@@ -44,13 +52,13 @@
             </div>
 
             <div class="task-buttons">
-                <a href="/delete-task/{{ loop.index0 }}">
+                <a href="/delete-task/{{ index }}">
                     <button type="button">Delete</button>
                 </a>
-
-                <form action="/complete-task/{{ loop.index0 }}" method="POST">
-                    <button type="submit">Mark Complete</button>
-                </form>
+            <form action="{{ url_for('completed_tasks') }}" method="POST">
+                <input type="hidden" name="index" value="{{ index }}">
+                <button type="submit">Mark Complete</button>
+            </form>
             </div>
         {% endfor %}
 
